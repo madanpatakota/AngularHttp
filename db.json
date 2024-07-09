@@ -1,31 +1,71 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment - One", "postId": 1 },
-    { "id": 3, "body": "some comment - Two", "postId": 1 }
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
-  "profile": { "name": "typicode" },
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": "2",
+      "body": "some comment - One",
+      "postId": 1
+    },
+    {
+      "id": "3",
+      "body": "some comment - Two",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
   "Products": [
     {
       "Device": "Dell",
       "Price": "20000",
-      "id": 1
+      "id": "1"
     },
     {
       "Device": "HP",
       "Price": "30000",
-      "id": 2
+      "id": "2"
     },
     {
       "Device": "Acer",
       "Price": "40000",
-      "id": 3
+      "id": "3"
     },
     {
       "Device": "microsoft",
       "Price": "50000",
-      "id": 4
+      "id": "4"
+    },
+    {
+      "Device": "Mac",
+      "Price": "100000",
+      "id": "9b23"
+    },
+    {
+      "id": "0b10",
+      "Device": "Lenovo-First",
+      "Price": "30000"
+    },
+    {
+      "id": "f1c8",
+      "Device": "Lenovo-Second",
+      "Price": "20000"
+    },
+    {
+      "id": "b6f6",
+      "Device": "Lenovo-Third",
+      "Price": "20100"
     }
   ]
 }

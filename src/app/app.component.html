@@ -90,3 +90,139 @@
     </button>
   </div>
 </div>
+
+
+
+<hr />
+
+<div class="row m-3">
+  <div class="col-4">
+    <input
+      placeholder="Please Enter Device Name"
+      type="text"
+      class="form-control"
+      #cDevicetextBox
+    />
+  </div>
+
+  <div class="col-4">
+    <input
+      placeholder="Please Enter Price"
+      type="text"
+      class="form-control"
+      #cPricetextBox
+    />
+  </div>
+
+  <div class="col-4">
+    <button class="btn btn-primary" (click)="evtPost(cDevicetextBox,cPricetextBox)">
+      Post
+    </button> |
+
+    <button class="btn btn-danger" (click)="evtClear(cDevicetextBox,cPricetextBox)">
+      Clear
+    </button>
+  </div>
+</div>
+
+
+
+<!--update-->
+<hr>
+
+<div class="row m-3">
+  <div class="col-3">
+    <input
+      placeholder="Please Enter the ID"
+      type="text"
+      class="form-control"
+      #uDeviceIDtextBox
+    />
+  </div>
+
+
+  <div class="col-3">
+    <input
+      placeholder="Please enter Device Name"
+      type="text"
+      class="form-control"
+      #uDeviceNameTexbox
+    />
+  </div>
+
+
+  <div class="col-3">
+    <input
+      placeholder="Please Enter Price Name"
+      type="text"
+      class="form-control"
+      #uDevicePriceTexbox
+    />
+  </div>
+
+
+
+  <div class="col-1">
+    <button class="btn btn-warning" (click)="evtUpdateProductsByID(uDeviceIDtextBox, uDeviceNameTexbox, uDevicePriceTexbox)">
+      Update
+    </button>
+  </div>
+</div>
+
+
+
+
+<!--Patch-->
+<hr>
+
+<div class="row m-3">
+  <div class="col-3">
+    <input
+      placeholder="Please Enter the ID"
+      type="text"
+      class="form-control"
+      #pDeviceIDtextBox
+    />
+  </div>
+
+
+  <div class="col-3">
+    <input
+      placeholder="Please enter Device Name"
+      type="text"
+      class="form-control"
+      #pDeviceNameTexbox
+    />
+  </div>
+
+  <div class="col-1">
+    <button class="btn btn-warning"
+     (click)="evtPatchProductsByID(pDeviceIDtextBox, pDeviceNameTexbox)">
+      Patch
+    </button>
+  </div>
+</div>
+
+
+
+<hr>
+
+<div class="row m-3">
+  <div class="col-3">
+    <input
+      placeholder="Please Enter the ID"
+      type="text"
+      class="form-control"
+      #dDeviceIDtextBox
+    />
+  </div>
+
+  <div class="col-1">
+    <button class="btn btn-danger"
+     (click)="evtDeleteProductsByID(dDeviceIDtextBox)">
+      Delete
+    </button>
+  </div>
+</div>
+
+
