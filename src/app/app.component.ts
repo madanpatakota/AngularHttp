@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   // Data fetch|get   Data post|create   Data put|update  Data|Patch  Data|Delete
 
   // i have created my ownserver(localhost) by using jsonserver
-  LocalHostEndPoint = "http://localhost:3000/comments"
+  LocalHostEndPoint = "http://localhost:3000/comments";
   LocalHostDevicesEndPoint = "http://localhost:3000/Products"
 
   // You have to connect this API
@@ -69,7 +69,15 @@ export class AppComponent implements OnInit {
 
     //********************************************************************************* */
 
-    this.httpClient.get(this.LocalHostDevicesEndPoint).
+    this.httpClient.get(this.LocalHostDevicesEndPoint, {
+      headers: {
+        Authorization: "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6Imp3cyJ9.eyJwYXJ0bmVyVXNlcklkIjo5MDQ4NCwiZW1haWwiOiJtYWRhbi5wYXRha290YUBnbWFpbC5jb20iLCJwcmVmaXgiOiIrOTEiLCJwaG9uZSI6IjcyMDQxODUwNjQiLCJlbWFpbFZlcmlmaWVkIjpmYWxzZSwiY291bnRyeUNvZGUiOiJJTiIsInBob25lVmVyaWZpZWQiOnRydWUsImZpcnN0TmFtZSI6Ik1vaGFuIHJlZGR5IiwibGFzdE5hbWUiOiJNYWRhbiIsImlhdCI6MTcyMDYyMTEzMCwiaXNzIjoid3d3LmFiaGlidXMuY29tIiwiYXVkIjoid3d3LmFiaGlidXMuY29tIiwianRpIjoiYWJycy05MDQ4NCIsImV4cCI6MTcyMDYyODMzMCwic3ViIjoidXNlciJ9.D767cX0rhRX9DE3-z3Vqo0AtLCsWToAWRR4jiRLWXxPdl-KyO1P4RENiwcz6OhJj7z_ViymID_k_EfKwcGmSAX5OVnBJWwrPYo_CtBQi86l0o2UMMD0o-AYzA0k_BZy3KOJVy0-KZFvgdZUOZAQMhyyAYuNnkm8mjYB7ViBaEeQdBTrOnC0hNm0FyoKXQJrYx_S17jmXMiDjSWyLFy-pVco7WoDLFodFTgi0vbX7MFW5YPZfuewRLwB8SE42vAByex62dxbwpfAj15DFNY5JbkKgkIorS7wxQXC7-Hy9_4lS7xOqriCQXKEgYsQE5aguYgcWgkIAwetQo_EaKFIOQA"
+      },
+      params: {
+        Role: "Admin",
+        Project: "Angular"
+      }
+    }).
       subscribe((data: any) => {
         this.DevicesList = data;
         this.OriginalDeviceList = data.slice();
@@ -91,7 +99,11 @@ export class AppComponent implements OnInit {
 
 
     let url = `http://localhost:3000/Products?id=${textBoxIDvalue}`;
-    this.httpClient.get(url).
+    this.httpClient.get(url, {
+      headers: {
+        Authorization: "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6Imp3cyJ9.eyJwYXJ0bmVyVXNlcklkIjo5MDQ4NCwiZW1haWwiOiJtYWRhbi5wYXRha290YUBnbWFpbC5jb20iLCJwcmVmaXgiOiIrOTEiLCJwaG9uZSI6IjcyMDQxODUwNjQiLCJlbWFpbFZlcmlmaWVkIjpmYWxzZSwiY291bnRyeUNvZGUiOiJJTiIsInBob25lVmVyaWZpZWQiOnRydWUsImZpcnN0TmFtZSI6Ik1vaGFuIHJlZGR5IiwibGFzdE5hbWUiOiJNYWRhbiIsImlhdCI6MTcyMDYyMTEzMCwiaXNzIjoid3d3LmFiaGlidXMuY29tIiwiYXVkIjoid3d3LmFiaGlidXMuY29tIiwianRpIjoiYWJycy05MDQ4NCIsImV4cCI6MTcyMDYyODMzMCwic3ViIjoidXNlciJ9.D767cX0rhRX9DE3-z3Vqo0AtLCsWToAWRR4jiRLWXxPdl-KyO1P4RENiwcz6OhJj7z_ViymID_k_EfKwcGmSAX5OVnBJWwrPYo_CtBQi86l0o2UMMD0o-AYzA0k_BZy3KOJVy0-KZFvgdZUOZAQMhyyAYuNnkm8mjYB7ViBaEeQdBTrOnC0hNm0FyoKXQJrYx_S17jmXMiDjSWyLFy-pVco7WoDLFodFTgi0vbX7MFW5YPZfuewRLwB8SE42vAByex62dxbwpfAj15DFNY5JbkKgkIorS7wxQXC7-Hy9_4lS7xOqriCQXKEgYsQE5aguYgcWgkIAwetQo_EaKFIOQA"
+      }
+    }).
       subscribe((data: any) => {
         this.DevicesList = data;
       });
@@ -228,7 +240,7 @@ export class AppComponent implements OnInit {
 
 
 
-  evtDeleteProductsByID(dDeviceIDtextBox:HTMLInputElement) {
+  evtDeleteProductsByID(dDeviceIDtextBox: HTMLInputElement) {
 
 
     //Javascritp how to remove elment in array based on the index
@@ -239,17 +251,17 @@ export class AppComponent implements OnInit {
 
     let url = `http://localhost:3000/Products/${ID}`;
 
-    this.httpClient.delete(url).subscribe((response:any)=>{
+    this.httpClient.delete(url).subscribe((response: any) => {
 
       //console.log(response);
       let index = this.DevicesList.
-             findIndex(x => x.id == response["id"])
+        findIndex(x => x.id == response["id"])
 
 
       //remove the record based on the index
       //Here array is nothing but collection of objects
-      
-      
+
+
     })
 
     //post man
