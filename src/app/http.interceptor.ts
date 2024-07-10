@@ -42,10 +42,10 @@ export class myHttpInterceptor implements HttpInterceptor {
 
 
 
-                                    localhost:3000/products
-              angular            <---------Endpoint------                   dotnet  http headers
+              //                       localhost:3000/products
+              // angular            <---------Endpoint------                   dotnet  http headers
 
 
 
-                                                    comments
-                                    ----------
+              //                                       comments
+              //                       ----------
