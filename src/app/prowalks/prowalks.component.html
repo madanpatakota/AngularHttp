@@ -1,0 +1,102 @@
+<!-- 
+<form>
+ 
+</form> -->
+
+<!-- <button class="btn btn-dark" (click)="GetAll()">Get All</button> -->
+
+<div style="margin: 50px; padding: 50px">
+  <h3>ProWalks Form</h3>
+
+ 
+
+  <div class="row">
+    <div>
+        <div>
+            <div class="form-group">
+              <label class="col-form-label">ID</label>
+              <input
+                name="Code"
+                type="text"
+                placeholder="code"
+                class="form-control"
+                [(ngModel)] = "prowalksID"
+              />
+            </div>
+    </div>
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="prowalksFormGroup">
+        <div>
+          <div class="form-group">
+            <label class="col-form-label">Code</label>
+            <input
+              name="Code"
+              type="text"
+              placeholder="code"
+              class="form-control"
+              formControlName =  "code"
+            />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Name</label>
+            <input
+              name="name"
+              type="text"
+              placeholder="Name"
+              class="form-control"
+              formControlName =  "name"
+            />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Area</label>
+            <input
+              name="area"
+              type="text"
+              placeholder="area"
+              class="form-control"
+              formControlName = "area"
+            />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Lat</label>
+            <input
+              name="Lat"
+              type="text"
+              placeholder="lat"
+              class="form-control"
+              formControlName = "lat"
+            />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Long</label>
+            <input
+              name="Long"
+              type="text"
+              placeholder="long"
+              class="form-control"
+              formControlName="long"
+            />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Population</label>
+            <input
+              name="Code"
+              type="text"
+              placeholder="population"
+              class="form-control"
+              formControlName="population"
+            />
+          </div>
+        </div>
+        <div class="form-group mt-4">
+            <button class="btn btn-dark" (click)="GetAll()">Get All</button> |
+            <button class="btn btn-primary">Get By ID</button>|
+            <button class="btn btn-secondary" (click)="Create()">Create</button>|
+            <button class="btn btn-warning" (click)="Update()">Update</button>|
+            <button class="btn btn-danger" (click)="Delete()">Delete</button>
+          </div>
+      </form>
+      
+    </div>
+  </div>
+</div>

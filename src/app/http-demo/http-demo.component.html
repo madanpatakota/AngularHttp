@@ -1,0 +1,229 @@
+<!-- <input type="text" [value]="textboxvalue" />
+
+<select>
+  <option disabled selected>Please select an email</option>
+  <option [value]="xyz.id" *ngFor="let xyz of JSONPlaceHolderAPIArrayItems">
+    {{ xyz.email }}
+  </option>
+</select>
+
+<input type="checkbox" [checked]="isChecked" />
+<input type="radio" [checked]="isChecked" /> -->
+<!-- 
+<table>
+  <thead>
+    <tr>
+      <th>body</th>
+      <th>email</th>
+      <th>id</th>
+      <th>name</th>
+      <th>postid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of JSONPlaceHolderAPIArrayItems">
+      <td>{{ item.body }}</td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.postId }}</td>
+    </tr>
+  </tbody>
+</table> -->
+<!-- 
+<div style="margin:50px" class="row col-4">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>body</th>
+        <th>id</th>
+        <th>postid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of LocalHostAPIArrayItems">
+        <td>{{ item.body }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.postId }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<div style="margin: 50px" class="row col-4">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Device</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="DevicesList.length == 0">
+          <td colspan="3">No records Found</td>
+        </tr>
+        <tr *ngFor="let device of DevicesList">
+          <td>{{ device.id }}</td>
+          <td>{{ device.Device }}</td>
+          <td>{{ device.Price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <hr />
+  
+  <div class="row m-3">
+    <div class="col-4">
+      <input
+        placeholder="Please enter the ID"
+        type="text"
+        class="form-control"
+        #textBox
+      />
+    </div>
+  
+    <div class="col-4">
+      <button class="btn btn-primary" (click)="evtGetProductsByID(textBox)">
+        GetByID
+      </button>
+    </div>
+  </div>
+  
+  
+  
+  <hr />
+  
+  <div class="row m-3">
+    <div class="col-4">
+      <input
+        placeholder="Please Enter Device Name"
+        type="text"
+        class="form-control"
+        #cDevicetextBox
+      />
+    </div>
+  
+    <div class="col-4">
+      <input
+        placeholder="Please Enter Price"
+        type="text"
+        class="form-control"
+        #cPricetextBox
+      />
+    </div>
+  
+    <div class="col-4">
+      <button class="btn btn-primary" (click)="evtPost(cDevicetextBox,cPricetextBox)">
+        Post
+      </button> |
+  
+      <button class="btn btn-danger" (click)="evtClear(cDevicetextBox,cPricetextBox)">
+        Clear
+      </button>
+    </div>
+  </div>
+  
+  
+  
+  <!--update-->
+  <hr>
+  
+  <div class="row m-3">
+    <div class="col-3">
+      <input
+        placeholder="Please Enter the ID"
+        type="text"
+        class="form-control"
+        #uDeviceIDtextBox
+      />
+    </div>
+  
+  
+    <div class="col-3">
+      <input
+        placeholder="Please enter Device Name"
+        type="text"
+        class="form-control"
+        #uDeviceNameTexbox
+      />
+    </div>
+  
+  
+    <div class="col-3">
+      <input
+        placeholder="Please Enter Price Name"
+        type="text"
+        class="form-control"
+        #uDevicePriceTexbox
+      />
+    </div>
+  
+  
+  
+    <div class="col-1">
+      <button class="btn btn-warning" (click)="evtUpdateProductsByID(uDeviceIDtextBox, uDeviceNameTexbox, uDevicePriceTexbox)">
+        Update
+      </button>
+    </div>
+  </div>
+  
+  
+  
+  
+  <!--Patch-->
+  <hr>
+  
+  <div class="row m-3">
+    <div class="col-3">
+      <input
+        placeholder="Please Enter the ID"
+        type="text"
+        class="form-control"
+        #pDeviceIDtextBox
+      />
+    </div>
+  
+  
+    <div class="col-3">
+      <input
+        placeholder="Please enter Device Name"
+        type="text"
+        class="form-control"
+        #pDeviceNameTexbox
+      />
+    </div>
+  
+    <div class="col-1">
+      <button class="btn btn-warning"
+       (click)="evtPatchProductsByID(pDeviceIDtextBox, pDeviceNameTexbox)">
+        Patch
+      </button>
+    </div>
+  </div>
+  
+  
+  
+  <hr>
+  
+  <div class="row m-3">
+    <div class="col-3">
+      <input
+        placeholder="Please Enter the ID"
+        type="text"
+        class="form-control"
+        #dDeviceIDtextBox
+      />
+    </div>
+  
+    <div class="col-1">
+      <button class="btn btn-danger"
+       (click)="evtDeleteProductsByID(dDeviceIDtextBox)">
+        Delete
+      </button>
+    </div>
+  </div>
+  
+  
+  
